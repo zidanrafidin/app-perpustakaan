@@ -50,10 +50,17 @@
             @enderror
         </div>
 
-        <div style="margin-bottom: 12px;">
-            <label for="kategori">Kategori:</label><br>
-            <input type="text" id="kategori" name="kategori" value="{{ old('kategori') }}">
-            @error('kategori')
+        <div>
+            <label for="category_id">Kategori:</label>
+            <select name="category_id" id="category_id">
+                <option value="">-- Pilih Kategori --</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                        {{ $category->nama_kategori }}
+                    </option>
+                @endforeach
+            </select>
+            @error('category_id')
                 <div style="color: red; font-size: 14px;">{{ $message }}</div>
             @enderror
         </div>
