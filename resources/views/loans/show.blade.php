@@ -8,6 +8,10 @@
         table { border-collapse: collapse; width: 100%; margin-top: 16px; }
         th, td { border: 1px solid #ccc; padding: 8px 12px; text-align: left; }
         .info th { width: 160px; background: #f3f4f6; }
+        .badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 13px; font-weight: bold; }
+        .badge-dipinjam { background: #fef3c7; color: #92400e; }
+        .badge-dikembalikan { background: #d1fae5; color: #065f46; }
+        .badge-terlambat { background: #fee2e2; color: #991b1b; }
     </style>
 </head>
 <body>
@@ -37,7 +41,7 @@
         </tr>
         <tr>
             <th>Status</th>
-            <td>{{ ucfirst($loan['status']) }}</td>
+            <td><span class="badge badge-{{ $loan['status'] }}">{{ ucfirst($loan['status']) }}</span></td>
         </tr>
     </table>
 
